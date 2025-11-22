@@ -1,8 +1,9 @@
 # Module 1 — Introduction to Vibe Coding / AI Tools overview
 
-## Launch stream
+## Reference links
 
-video [url:](https://www.youtube.com/watch?v=58pn873XO04&list=PL3MmuxUbc_hLuyafXPyhTdbF4s_uNhc43&index=1)
+[video](https://www.youtube.com/watch?v=NSMXQk4Axig&list=PL3MmuxUbc_hLuyafXPyhTdbF4s_uNhc43)
+[Original repo](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/tree/main/01-overview)
 
 ### Notes
 
@@ -16,4 +17,4 @@ Sharing community:
 - Extra points for publishing your work on social media:
   - [LinkedIn](./images/share-in-linkedin.png)
 
-## Notes
+**Build a snake application with AI tools**: We will build a snake game using svelte and python.
