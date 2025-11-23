@@ -32,7 +32,7 @@ npm run preview
 
 This project is configured to deploy to GitHub Pages. The deployment workflow is located at `../../.github/workflows/deploy-snake.yml` and triggers automatically when changes are pushed to this directory.
 
-**Live Demo:** https://ccalobeto.github.io/ai-dev-tools-zoomcamp/
+**Live Demo:** <https://ccalobeto.github.io/ai-dev-tools-zoomcamp/>
 
 ## Controls
 
