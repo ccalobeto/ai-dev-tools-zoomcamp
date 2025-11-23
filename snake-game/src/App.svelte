@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
   // Game constants
   const GRID_SIZE = 20;
@@ -22,15 +22,19 @@
     do {
       newFood = {
         x: Math.floor(Math.random() * GRID_SIZE),
-        y: Math.floor(Math.random() * GRID_SIZE)
+        y: Math.floor(Math.random() * GRID_SIZE),
       };
-    } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+    } while (
+      snake.some(
+        (segment) => segment.x === newFood.x && segment.y === newFood.y,
+      )
+    );
     return newFood;
   }
 
   // Check if position is part of snake
   function isSnake(x, y) {
-    return snake.some(segment => segment.x === x && segment.y === y);
+    return snake.some((segment) => segment.x === x && segment.y === y);
   }
 
   // Check if position is food
@@ -45,18 +49,27 @@
     const head = snake[0];
     const newHead = {
       x: head.x + direction.x,
-      y: head.y + direction.y
+      y: head.y + direction.y,
     };
 
     // Check wall collision
-    if (newHead.x < 0 || newHead.x >= GRID_SIZE || newHead.y < 0 || newHead.y >= GRID_SIZE) {
+    if (
+      newHead.x < 0 ||
+      newHead.x >= GRID_SIZE ||
+      newHead.y < 0 ||
+      newHead.y >= GRID_SIZE
+    ) {
       gameOver = true;
       clearInterval(gameInterval);
       return;
     }
 
     // Check self collision
-    if (snake.some(segment => segment.x === newHead.x && segment.y === newHead.y)) {
+    if (
+      snake.some(
+        (segment) => segment.x === newHead.x && segment.y === newHead.y,
+      )
+    ) {
       gameOver = true;
       clearInterval(gameInterval);
       return;
@@ -79,16 +92,16 @@
     if (gameOver) return;
 
     switch (event.key) {
-      case 'ArrowUp':
+      case "ArrowUp":
         if (direction.y === 0) direction = { x: 0, y: -1 };
         break;
-      case 'ArrowDown':
+      case "ArrowDown":
         if (direction.y === 0) direction = { x: 0, y: 1 };
         break;
-      case 'ArrowLeft':
+      case "ArrowLeft":
         if (direction.x === 0) direction = { x: -1, y: 0 };
         break;
-      case 'ArrowRight':
+      case "ArrowRight":
         if (direction.x === 0) direction = { x: 1, y: 0 };
         break;
     }
@@ -116,17 +129,24 @@
 
 <svelte:window on:keydown={handleKeyDown} />
 
-<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-500 to-blue-600 p-8">
+<div
+  class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-500 to-blue-600 p-8"
+>
   <div class="bg-white rounded-lg shadow-2xl p-8">
-    <h1 class="text-4xl font-bold text-center mb-4 text-gray-800">Snake Game</h1>
-    
+    <h1 class="text-4xl font-bold text-center mb-4 text-gray-800">
+      Snake Game
+    </h1>
+
     <div class="mb-4 text-center">
-      <p class="text-2xl font-semibold text-gray-700">Score: <span class="text-blue-600">{score}</span></p>
+      <p class="text-2xl font-semibold text-gray-700">
+        Score: <span class="text-blue-600">{score}</span>
+      </p>
     </div>
 
-    <div 
+    <div
       class="border-4 border-gray-800 bg-gray-100 relative"
-      style="width: {GRID_SIZE * CELL_SIZE}px; height: {GRID_SIZE * CELL_SIZE}px;"
+      style="width: {GRID_SIZE * CELL_SIZE}px; height: {GRID_SIZE *
+        CELL_SIZE}px;"
     >
       {#each Array(GRID_SIZE) as _, y}
         {#each Array(GRID_SIZE) as _, x}
@@ -150,7 +170,7 @@
       <div class="mt-6 text-center">
         <p class="text-3xl font-bold text-red-600 mb-4">Game Over!</p>
         <button
-          on:click={resetGame}
+          onclick={resetGame}
           class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200"
         >
           Play Again
