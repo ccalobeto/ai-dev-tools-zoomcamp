@@ -40,4 +40,28 @@ In app data
 
 ### Project Bootstapers
 
-- Use templates that guide you to create an app faster.
+Use templates that guide you to create an app faster.
+
+- **Lovable**
+
+- You can make some initial phases in your project using *Lovable*, then download the project and continue working with copilot.
+
+```bash
+
+### Agents
+
+- Some agents can interact with your desktop environment so it can use your browser to make tedious tasks like search pictures of cats.
+
+```bash
+export ANTHROPIC_API_KEY="your_anthropic_api_key_here"
+docker run \
+  -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
+  -v $HOME/.anthropic:/home/computeruse/.anthropic \
+  -p 5900:5900 \
+  -p 8501:8501 \
+  -p 6080:6080 \
+  -p 8080:8080 \
+  -it ghcr.io/anthropics/anthropic-quickstarts:computer-use-demo-latest
+ ```
+
+- Or create your own agent to automate pull requests, reviews and suggestions.
