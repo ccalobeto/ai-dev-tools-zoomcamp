@@ -144,7 +144,7 @@
     </div>
 
     <div
-      class="border-4 border-gray-800 bg-gray-100 relative"
+      class="border-4 border-gray-800 bg-gray-100 relative overflow-hidden"
       style="width: {GRID_SIZE * CELL_SIZE}px; height: {GRID_SIZE *
         CELL_SIZE}px;"
     >
@@ -157,6 +157,8 @@
               top: {y * CELL_SIZE}px;
               width: {CELL_SIZE}px;
               height: {CELL_SIZE}px;
+              border-right: 1px solid #d1d5db;
+              border-bottom: 1px solid #d1d5db;
             "
             class:bg-green-500={isSnake(x, y)}
             class:bg-red-500={isFood(x, y)}
