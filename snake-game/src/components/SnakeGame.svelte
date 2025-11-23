@@ -186,7 +186,7 @@
   </div>
 
   <div
-    class="border-4 border-gray-800 bg-gray-100 relative overflow-hidden"
+    class="border-2 border-gray-800 bg-gray-100 relative overflow-hidden"
     style="width: {GRID_SIZE * CELL_SIZE}px; height: {GRID_SIZE * CELL_SIZE}px;"
   >
     {#each Array(GRID_SIZE) as _, y}
