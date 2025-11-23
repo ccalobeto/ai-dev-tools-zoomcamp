@@ -18,3 +18,18 @@ Sharing community:
   - [LinkedIn](./images/share-in-linkedin.png)
 
 **Build a snake application with AI tools**: We will build a snake game using svelte and python.
+
+- Prompt: "Create a snake game using svelte".
+
+- With chatGPT, you must be sure that the model was trained with the version packages you are using. Ask for the modern versions of the packages and follow th instructions to deploy the application in vscode.
+
+- With Claude, we use WASP controls adding a complement prompt: "I want to use WASP for controlling the snake also i want to have two models: walls and pass-through". Download the app to ask claude of "how to run locally".
+
+The problem with the assistants above is that you ask and have to paste manually in your code editor.
+
+- Claude code is a **code cli**, and use its terminal commands to build an app. And the end will give you the costs, tokens, and time used to build the app.
+In app data
+
+- With copilot, give the prompt and the app runs but something happened with the app initialization *related to an old svelte versions*. So i copy the error message of the browser console and paste it back to copilot asking to fix the error. Copilot fixed the error and the application runned. Also i asked to do some refactorings like removing the logic into a separate component with this prompt: "Let's refactor it and put the logic into a snake component".
+
+- With cursor, its IDE is similar to VS code.
