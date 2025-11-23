@@ -14,6 +14,7 @@
   let food = $state({ x: 15, y: 15 });
   let gameOver = $state(false);
   let score = $state(0);
+  let gameMode = $state("walls"); // 'walls' or 'pass-through'
   let gameInterval = null;
 
   // Generate random food position
@@ -47,21 +48,30 @@
     if (gameOver) return;
 
     const head = snake[0];
-    const newHead = {
+    let newHead = {
       x: head.x + direction.x,
       y: head.y + direction.y,
     };
 
-    // Check wall collision
-    if (
-      newHead.x < 0 ||
-      newHead.x >= GRID_SIZE ||
-      newHead.y < 0 ||
-      newHead.y >= GRID_SIZE
-    ) {
-      gameOver = true;
-      clearInterval(gameInterval);
-      return;
+    // Handle wall collision based on game mode
+    if (gameMode === "walls") {
+      // Walls mode: game over on collision
+      if (
+        newHead.x < 0 ||
+        newHead.x >= GRID_SIZE ||
+        newHead.y < 0 ||
+        newHead.y >= GRID_SIZE
+      ) {
+        gameOver = true;
+        clearInterval(gameInterval);
+        return;
+      }
+    } else {
+      // Pass-through mode: wrap around
+      if (newHead.x < 0) newHead.x = GRID_SIZE - 1;
+      if (newHead.x >= GRID_SIZE) newHead.x = 0;
+      if (newHead.y < 0) newHead.y = GRID_SIZE - 1;
+      if (newHead.y >= GRID_SIZE) newHead.y = 0;
     }
 
     // Check self collision
@@ -93,15 +103,23 @@
 
     switch (event.key) {
       case "ArrowUp":
+      case "w":
+      case "W":
         if (direction.y === 0) direction = { x: 0, y: -1 };
         break;
       case "ArrowDown":
+      case "s":
+      case "S":
         if (direction.y === 0) direction = { x: 0, y: 1 };
         break;
       case "ArrowLeft":
+      case "a":
+      case "A":
         if (direction.x === 0) direction = { x: -1, y: 0 };
         break;
       case "ArrowRight":
+      case "d":
+      case "D":
         if (direction.x === 0) direction = { x: 1, y: 0 };
         break;
     }
@@ -143,6 +161,35 @@
       </p>
     </div>
 
+    <div class="mb-4 flex justify-center gap-4">
+      <button
+        onclick={() => {
+          gameMode = "walls";
+          resetGame();
+        }}
+        class="px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
+        class:bg-blue-600={gameMode === "walls"}
+        class:text-white={gameMode === "walls"}
+        class:bg-gray-200={gameMode !== "walls"}
+        class:text-gray-700={gameMode !== "walls"}
+      >
+        Walls Mode
+      </button>
+      <button
+        onclick={() => {
+          gameMode = "pass-through";
+          resetGame();
+        }}
+        class="px-4 py-2 rounded-lg font-semibold transition-colors duration-200"
+        class:bg-blue-600={gameMode === "pass-through"}
+        class:text-white={gameMode === "pass-through"}
+        class:bg-gray-200={gameMode !== "pass-through"}
+        class:text-gray-700={gameMode !== "pass-through"}
+      >
+        Pass-Through Mode
+      </button>
+    </div>
+
     <div
       class="border-4 border-gray-800 bg-gray-100 relative overflow-hidden"
       style="width: {GRID_SIZE * CELL_SIZE}px; height: {GRID_SIZE *
@@ -157,8 +204,8 @@
               top: {y * CELL_SIZE}px;
               width: {CELL_SIZE}px;
               height: {CELL_SIZE}px;
-              border-right: 1px solid #d1d5db;
-              border-bottom: 1px solid #d1d5db;
+              {x > 0 ? 'border-left: 1px solid #d1d5db;' : ''}
+              {y > 0 ? 'border-top: 1px solid #d1d5db;' : ''}
             "
             class:bg-green-500={isSnake(x, y)}
             class:bg-red-500={isFood(x, y)}
@@ -181,8 +228,12 @@
     {/if}
 
     <div class="mt-6 text-center text-gray-600">
-      <p class="text-sm">Use arrow keys to control the snake</p>
+      <p class="text-sm">Use arrow keys or WASD to control the snake</p>
       <p class="text-xs mt-2">Eat the red food to grow and score points!</p>
+      <p class="text-xs mt-1">
+        <span class="font-semibold">Walls Mode:</span> Hit walls = Game Over |
+        <span class="font-semibold">Pass-Through:</span> Walls wrap around
+      </p>
     </div>
   </div>
 </div>
