@@ -1,6 +1,7 @@
 <h1>TODO List</h1>
 <a href="{% url 'todo_create' %}">Create TODO</a>
 <ul>
+  {% if todos %}
   {% for todo in todos %}
   <li>
     {{ todo.title }} - {{ todo.due_date }} - Resolved: {{ todo.is_resolved }}
@@ -9,4 +10,7 @@
     <a href="{% url 'todo_resolve' todo.pk %}">Mark as Resolved</a>
   </li>
   {% endfor %}
+  {% else %}
+  <p>No TODOs found</p>
+  {% endif %}
 </ul>
