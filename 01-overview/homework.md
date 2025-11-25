@@ -26,6 +26,12 @@ What's the command you used for that?
 
 There could be multiple ways to do it. Put the one that AI suggested in the homework form.
 
+A1:
+
+```bash
+uv pip install django
+```
+
 ## Question 2: Project and App
 
 Now we need to create a project and an app for that.
@@ -38,6 +44,8 @@ What's the file you need to edit for that?
 - `manage.py`
 - `urls.py`
 - `wsgi.py`
+
+A2: `manage.py`
 
 ## Question 3: Django Models
 
@@ -52,6 +60,8 @@ What's the next step you need to take?
 - Run migrations
 - Create a makefile
 
+A3: Run migrations
+
 ## Question 4. TODO Logic
 
 Let's now ask AI to implement the logic for the TODO app. Where do we put it?
@@ -60,6 +70,8 @@ Let's now ask AI to implement the logic for the TODO app. Where do we put it?
 - `urls.py`
 - `admin.py`
 - `tests.py`
+
+A4: `views.py`
 
 ## Question 5. Templates
 
@@ -71,6 +83,8 @@ Where do you need to register the directory with the templates?
 - `TEMPLATES['DIRS']` in project's `settings.py`
 - `TEMPLATES['APP_DIRS']` in project's `settings.py`
 - In the app's `urls.py`
+
+A5: TEMPLATES['DIRS'] in project's settings.py
 
 ## Question 6. Tests
 
@@ -88,6 +102,8 @@ What's the command you use for running tests in the terminal?
 - `python manage.py test`
 - `python -m django run_tests`
 - `django-admin test`
+
+A6: `python manage.py test`
 
 ## Running the app
 
