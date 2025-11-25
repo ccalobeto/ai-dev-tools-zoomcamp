@@ -2,13 +2,19 @@
 
 ## Instructions to run the App
 
-1. Clone the repository [ai-dev-tools-zoomcamp](https://github.com/ccalobeto/ai-dev-tools-zoomcamp.git)
+1. Degit `degit ccalobeto/ai-dev-tools-zoomcamp/01-overview/01-todo 01-todo --force`
 
-1. Go to **01-overview/01-todo**
+1. Go to the folder `cd 01-todo`
 
-1. Create an environment `python -m venv pyai`
+1. Create an environment `python3 -m venv pyai`
 
 1. Activate the environment with `source pyai/bin/activate`
+
+1. Install django `uv pip install django`
+
+1. Make migrations with `python manage.py makemigrations todo_app`
+
+1. Apply migrations with `python manage.py migrate`
 
 1. Run the server with `python manage.py runserver`
 
