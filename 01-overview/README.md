@@ -46,8 +46,6 @@ Use templates that guide you to create an app faster.
 
 - You can make some initial phases in your project using *Lovable*, then download the project and continue working with copilot.
 
-```bash
-
 ### Agents
 
 - Some agents can interact with your desktop environment so it can use your browser to make tedious tasks like search pictures of cats.
