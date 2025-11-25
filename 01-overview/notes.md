@@ -5,7 +5,9 @@
 [video](https://www.youtube.com/watch?v=NSMXQk4Axig&list=PL3MmuxUbc_hLuyafXPyhTdbF4s_uNhc43)
 [Original repo](https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/tree/main/01-overview)
 
-### Notes
+## Notes
+
+### Initial
 
 **Vibe coding**: let AI to create code and you don't really care which is inside and it appars to work.
 
@@ -63,3 +65,9 @@ docker run \
  ```
 
 - Or create your own agent to automate pull requests, reviews and suggestions.
+
+## Homework
+
+- The homework is in [01-overview/homework.md](01-overview/homework.md)
+
+- Important prompt for tests: "Cover the fuctionality with tests: which scenarios we should cover, make sure they make sense, implement and run them"
