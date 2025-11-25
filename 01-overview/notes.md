@@ -70,4 +70,9 @@ docker run \
 
 - The homework is in [01-overview/homework.md](01-overview/homework.md)
 
+- Here is how to run the [homework](01-overview/01-todo/README.md)
+
 - Important prompt for tests: "Cover the fuctionality with tests: which scenarios we should cover, make sure they make sense, implement and run them"
+
+  - Run the tests with: `python manage.py test`
+  ![test status](./images/test-status.png)
